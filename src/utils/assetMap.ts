@@ -18,32 +18,32 @@ const bai6Pdf = new URL("../../CNS/Tuan_6/Bai_tap_4.pdf", import.meta.url).href;
 
 export const assetMap = {
   bai1: {
-    image: bai1Image,
+    promptImage: bai1Image,
     pdf: bai1Pdf,
     sourceFolder: "CNS/Tuan_1",
   },
   bai2: {
-    image: bai2Image,
+    promptImage: bai2Image,
     pdf: bai2Pdf,
     sourceFolder: "CNS/Tuan_2",
   },
   bai3: {
-    image: bai3Image,
+    promptImage: bai3Image,
     pdf: bai3Pdf,
     sourceFolder: "CNS/Tuan_3",
   },
   bai4: {
-    image: bai4Image,
+    promptImage: bai4Image,
     pdf: bai4Pdf,
     sourceFolder: "CNS/Tuan_4",
   },
   bai5: {
-    image: bai5Image,
+    promptImage: bai5Image,
     pdf: bai5Pdf,
     sourceFolder: "CNS/Tuan_5",
   },
   bai6: {
-    image: bai6Image,
+    promptImage: bai6Image,
     pdf: bai6Pdf,
     sourceFolder: "CNS/Tuan_6",
   },

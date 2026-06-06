@@ -1,11 +1,14 @@
-import { Compass, Lightbulb, Route, ShieldCheck, Sprout } from "lucide-react";
+import { Compass, Lightbulb, Route, ShieldCheck, Sparkles, Sprout } from "lucide-react";
+import { FloatingDecor } from "../components/FloatingDecor";
+import { GeneratedArtImage } from "../components/GeneratedArtImage";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { heroArt } from "../data/generatedArt";
 
 const reflections = [
   {
     icon: Compass,
     title: "Trải nghiệm thực hiện portfolio",
-    text: "Quá trình xây dựng portfolio giúp tôi nhìn lại môn học như một hành trình có cấu trúc, thay vì chỉ là chuỗi bài nộp rời rạc. Khi phải chọn ảnh minh chứng, viết lại mục tiêu, mô tả quá trình và liên kết PDF gốc, tôi hiểu rõ hơn sản phẩm nào thể hiện kỹ năng nào và vì sao nó quan trọng.",
+    text: "Quá trình xây dựng portfolio giúp tôi nhìn lại môn học như một hành trình có cấu trúc, thay vì chỉ là chuỗi bài nộp rời rạc. Khi phải viết lại mục tiêu, mô tả quá trình và liên kết minh chứng gốc, tôi hiểu rõ hơn sản phẩm nào thể hiện kỹ năng nào và vì sao nó quan trọng.",
   },
   {
     icon: Lightbulb,
@@ -15,27 +18,31 @@ const reflections = [
   {
     icon: Route,
     title: "Khó khăn gặp phải",
-    text: "Khó khăn lớn nhất là biến các minh chứng và báo cáo PDF thành một câu chuyện học tập mạch lạc. Mỗi bài có định dạng khác nhau, có bài thiên về thao tác kỹ thuật, có bài thiên về phân tích chính sách hoặc sáng tạo nội dung. Nếu chỉ đặt file lên website, portfolio sẽ chưa thể hiện đầy đủ quá trình học.",
+    text: "Khó khăn lớn nhất là biến các minh chứng và báo cáo PDF thành một câu chuyện học tập mạch lạc. Mỗi bài có định dạng khác nhau: có bài thiên về thao tác kỹ thuật, có bài thiên về phân tích chính sách hoặc sáng tạo nội dung. Nếu chỉ đặt file lên website, portfolio sẽ chưa thể hiện đầy đủ quá trình học.",
   },
   {
     icon: ShieldCheck,
     title: "Cách khắc phục",
-    text: "Tôi xử lý bằng cách chuẩn hóa mỗi bài theo cùng một khung: mục tiêu, quá trình, kết quả, hình ảnh minh họa, kiến thức rút ra và minh chứng gốc. Cách làm này giúp người xem dễ theo dõi, đồng thời buộc tôi phải đọc lại sản phẩm của mình và diễn giải bằng ngôn ngữ rõ ràng hơn.",
+    text: "Tôi xử lý bằng cách chuẩn hóa mỗi bài theo cùng một khung: mục tiêu, đề bài gốc, quá trình, kết quả, kiến thức rút ra, cảm nhận và minh chứng PDF. Cách làm này giúp người xem dễ theo dõi, đồng thời buộc tôi đọc lại sản phẩm của mình và diễn giải bằng ngôn ngữ rõ ràng hơn.",
   },
   {
     icon: Sprout,
     title: "Định hướng sau môn học",
-    text: "Sau môn học, tôi muốn tiếp tục phát triển năng lực học tập số theo hướng có trách nhiệm: biết dùng AI để hỗ trợ tư duy, nhưng không phụ thuộc vào AI; biết tạo nội dung hấp dẫn, nhưng vẫn giữ chuẩn mực học thuật; biết hợp tác trực tuyến, nhưng luôn minh bạch về vai trò và đóng góp cá nhân.",
+    text: "Sau môn học, tôi muốn tiếp tục phát triển năng lực học tập số theo hướng có trách nhiệm: biết dùng AI để hỗ trợ tư duy nhưng không phụ thuộc vào AI; biết tạo nội dung hấp dẫn nhưng vẫn giữ chuẩn mực học thuật; biết hợp tác trực tuyến nhưng luôn minh bạch về vai trò và đóng góp cá nhân.",
   },
 ];
 
 export function ReflectionPage() {
   return (
     <>
-      <section className="page-hero reflection-hero">
+      <section className="page-hero reflection-hero art-page-hero">
+        <div className="page-hero-visual" aria-hidden="true">
+          <GeneratedArtImage className="page-hero-image" asset={heroArt.reflection} alt="" />
+        </div>
+        <FloatingDecor variant="reflection" />
         <div className="section-inner">
           <span className="eyebrow">
-            <Compass size={16} strokeWidth={1.8} />
+            <Sparkles size={16} strokeWidth={1.8} />
             Trang tổng kết cá nhân
           </span>
           <h1>Nhìn lại hành trình và phần tri thức đã kết tinh</h1>

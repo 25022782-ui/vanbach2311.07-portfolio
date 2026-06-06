@@ -9,22 +9,33 @@ type AssignmentCardProps = {
 
 export function AssignmentCard({ assignment }: AssignmentCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
-  const hasImage = assignment.image && !imageFailed;
+  const [fallbackFailed, setFallbackFailed] = useState(false);
+  const activeImage = imageFailed ? assignment.coverFallbackImage : assignment.coverImage;
+  const hasImage = activeImage && !fallbackFailed;
 
   return (
-    <Link className="assignment-card" to={`/projects/${assignment.id}`}>
+    <Link className="assignment-card" to={`/projects/${assignment.slug}`}>
       <div className="assignment-media">
         {hasImage ? (
           <img
-            src={assignment.image}
-            alt={`Ảnh minh họa ${assignment.title}`}
+            src={activeImage}
+            alt={`Ảnh nghệ thuật thủy mặc cho ${assignment.title}`}
+            data-generated-art={assignment.coverImageFileName}
+            data-art-mode={imageFailed ? "fallback" : "primary"}
             loading="lazy"
-            onError={() => setImageFailed(true)}
+            onError={() => {
+              if (!imageFailed && assignment.coverFallbackImage) {
+                setImageFailed(true);
+                return;
+              }
+
+              setFallbackFailed(true);
+            }}
           />
         ) : (
           <div className="ink-placeholder">
             <ImageOff size={30} strokeWidth={1.5} />
-            <span>Thủy mặc đang chờ ảnh minh chứng</span>
+            <span>Ảnh nghệ thuật đang chờ thay thế</span>
           </div>
         )}
         <span className="assignment-number">Bài {assignment.number}</span>

@@ -1,12 +1,19 @@
 import { Layers3, MapPinned, Sparkles } from "lucide-react";
 import { AssignmentCard } from "../components/AssignmentCard";
+import { FloatingDecor } from "../components/FloatingDecor";
+import { GeneratedArtImage } from "../components/GeneratedArtImage";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { assignments } from "../data/assignments";
+import { heroArt } from "../data/generatedArt";
 
 export function ProjectsPage() {
   return (
     <>
-      <section className="page-hero compact-hero">
+      <section className="page-hero compact-hero art-page-hero">
+        <div className="page-hero-visual" aria-hidden="true">
+          <GeneratedArtImage className="page-hero-image" asset={heroArt.projects} alt="" />
+        </div>
+        <FloatingDecor variant="projects" />
         <div className="section-inner">
           <span className="eyebrow">
             <Layers3 size={16} strokeWidth={1.8} />
@@ -14,8 +21,9 @@ export function ProjectsPage() {
           </span>
           <h1>Sáu thử thách trên hành trình công nghệ số</h1>
           <p>
-            Mỗi card là một sản phẩm học tập đã được biên tập lại thành nội dung web,
-            có ảnh minh chứng và liên kết tới báo cáo PDF gốc ở trang chi tiết.
+            Mỗi card dùng một ảnh nghệ thuật thủy mặc được tạo mới cho website. Ảnh
+            trong `public/generated-art/` là ảnh minh họa chính; ảnh `bai_tap_*.png`
+            trong CNS chỉ được đặt ở trang chi tiết như đề bài hoặc minh chứng gốc.
           </p>
         </div>
       </section>
@@ -38,8 +46,8 @@ export function ProjectsPage() {
           </ScrollReveal>
           <ScrollReveal className="summary-note" delay={160}>
             <p>
-              Dữ liệu được quét từ `CNS/Tuan_*`. Các file gốc vẫn được giữ nguyên,
-              website chỉ tham chiếu để tạo bản trình bày thân thiện hơn.
+              Dữ liệu được quét từ `CNS/Tuan_*`. File gốc vẫn giữ nguyên; website chỉ tham
+              chiếu để tạo bản trình bày thân thiện và có tính học thuật hơn.
             </p>
           </ScrollReveal>
         </div>

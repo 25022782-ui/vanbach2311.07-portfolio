@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" role="img" aria-label="Ink dragon cloud spirit">
+  <path d="M74 250c74-82 154-112 240-90 74 18 126 4 154-42 24-40 8-66-34-78-40-12-80 0-118 36" fill="none" stroke="#17231f" stroke-width="22" stroke-linecap="round" opacity=".82"/>
+  <path d="M72 250c104-42 190-38 258 12 66 48 128 40 186-24" fill="none" stroke="#0f7669" stroke-width="10" stroke-linecap="round" opacity=".74"/>
+  <path d="M448 74c42-36 84-46 126-30-34 10-56 30-66 60" fill="none" stroke="#17231f" stroke-width="10" stroke-linecap="round"/>
+  <path d="M396 58c-8-28 2-48 30-60" fill="none" stroke="#b98d28" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="438" cy="74" r="8" fill="#b98d28"/>
+  <g fill="#fffaf0" opacity=".72">
+    <circle cx="130" cy="214" r="32"/><circle cx="194" cy="180" r="28"/><circle cx="518" cy="230" r="34"/>
+  </g>
+</svg>

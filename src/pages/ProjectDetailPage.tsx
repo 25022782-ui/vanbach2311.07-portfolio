@@ -3,6 +3,7 @@ import {
   BookOpenCheck,
   Download,
   ExternalLink,
+  FileImage,
   FileText,
   ImageOff,
   Mountain,
@@ -13,6 +14,7 @@ import {
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { FloatingDecor } from "../components/FloatingDecor";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { getAssignmentById } from "../data/assignments";
 
@@ -45,7 +47,9 @@ function DetailSection({ icon, label, title, items }: DetailSectionProps) {
 export function ProjectDetailPage() {
   const { id } = useParams();
   const assignment = getAssignmentById(id);
-  const [imageFailed, setImageFailed] = useState(false);
+  const [coverPrimaryFailed, setCoverPrimaryFailed] = useState(false);
+  const [coverFallbackFailed, setCoverFallbackFailed] = useState(false);
+  const [promptImageFailed, setPromptImageFailed] = useState(false);
 
   if (!assignment) {
     return (
@@ -66,11 +70,14 @@ export function ProjectDetailPage() {
     );
   }
 
-  const hasImage = assignment.image && !imageFailed;
+  const coverImage = coverPrimaryFailed ? assignment.coverFallbackImage : assignment.coverImage;
+  const hasCoverImage = coverImage && !coverFallbackFailed;
+  const hasPromptImage = assignment.promptImage && !promptImageFailed;
 
   return (
     <>
-      <section className="detail-hero">
+      <section className="detail-hero art-page-hero">
+        <FloatingDecor variant="detail" />
         <div className="section-inner detail-hero-grid">
           <div className="detail-copy">
             <Link className="back-link" to="/projects">
@@ -91,16 +98,25 @@ export function ProjectDetailPage() {
           </div>
 
           <div className="detail-art">
-            {hasImage ? (
+            {hasCoverImage ? (
               <img
-                src={assignment.image}
-                alt={`Minh chứng bài ${assignment.number}: ${assignment.title}`}
-                onError={() => setImageFailed(true)}
+                src={coverImage}
+                alt={`Ảnh nghệ thuật thủy mặc cho bài ${assignment.number}: ${assignment.title}`}
+                data-generated-art={assignment.coverImageFileName}
+                data-art-mode={coverPrimaryFailed ? "fallback" : "primary"}
+                onError={() => {
+                  if (!coverPrimaryFailed && assignment.coverFallbackImage) {
+                    setCoverPrimaryFailed(true);
+                    return;
+                  }
+
+                  setCoverFallbackFailed(true);
+                }}
               />
             ) : (
               <div className="ink-placeholder tall">
                 <ImageOff size={34} strokeWidth={1.5} />
-                <span>Chưa có ảnh minh chứng phù hợp</span>
+                <span>Ảnh nghệ thuật đang chờ thay thế</span>
               </div>
             )}
           </div>
@@ -114,6 +130,8 @@ export function ProjectDetailPage() {
             <strong>{assignment.chapter}</strong>
             <p>Nguồn đã map</p>
             <strong>{assignment.sourceFolder}</strong>
+            <p>Phân biệt ảnh</p>
+            <strong>Cover là ảnh nghệ thuật mới; PNG gốc chỉ là đề bài/minh chứng.</strong>
           </aside>
 
           <div className="detail-sections">
@@ -123,6 +141,50 @@ export function ProjectDetailPage() {
               title="Mục tiêu bài tập"
               items={assignment.objectives}
             />
+
+            <ScrollReveal className="source-panel prompt-source-panel">
+              <div>
+                <span className="detail-icon">
+                  <FileImage size={24} />
+                </span>
+                <div>
+                  <p>Đề bài gốc / minh chứng ảnh</p>
+                  <h2>Ảnh PNG từ thư mục CNS</h2>
+                  <p>
+                    Khu vực này hiển thị ảnh `bai_tap_*.png` như tư liệu nguồn. Ảnh này
+                    không được dùng làm banner hoặc ảnh đại diện chính của giao diện web.
+                  </p>
+                </div>
+              </div>
+              {hasPromptImage ? (
+                <>
+                  <figure className="prompt-image-frame">
+                    <img
+                      src={assignment.promptImage}
+                      alt={`Ảnh đề bài hoặc minh chứng gốc của bài ${assignment.number}`}
+                      loading="lazy"
+                      onError={() => setPromptImageFailed(true)}
+                    />
+                  </figure>
+                  <div className="source-actions">
+                    <a
+                      className="secondary-action"
+                      href={assignment.promptImage}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <ExternalLink size={18} />
+                      Mở ảnh gốc
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <p className="missing-note">
+                  TODO: Chưa map được ảnh đề bài gốc cho bài này trong `src/data/assignments.ts`.
+                </p>
+              )}
+            </ScrollReveal>
+
             <DetailSection
               icon={<Mountain size={24} />}
               label="Quá trình tu luyện"
@@ -138,7 +200,7 @@ export function ProjectDetailPage() {
             <DetailSection
               icon={<ShieldCheck size={24} />}
               label="Tri thức lĩnh ngộ"
-              title="Kiến thức rút ra"
+              title="Kiến thức và kỹ năng đạt được"
               items={assignment.reflection}
             />
 
@@ -148,8 +210,8 @@ export function ProjectDetailPage() {
                   <ExternalLink size={24} />
                 </span>
                 <div>
-                  <p>Minh chứng gốc</p>
-                  <h2>Báo cáo PDF</h2>
+                  <p>Minh chứng PDF</p>
+                  <h2>Báo cáo gốc</h2>
                   <p>
                     Nội dung phía trên đã được trình bày lại trực tiếp bằng web. PDF gốc
                     được đặt tại đây như tài liệu tham khảo và minh chứng bài nộp.
@@ -169,8 +231,7 @@ export function ProjectDetailPage() {
                 </div>
               ) : (
                 <p className="missing-note">
-                  TODO: Chưa map được file PDF cho bài này. Bổ sung đường dẫn trong
-                  `src/data/assignments.ts`.
+                  TODO: Chưa map được file PDF cho bài này trong `src/data/assignments.ts`.
                 </p>
               )}
             </ScrollReveal>

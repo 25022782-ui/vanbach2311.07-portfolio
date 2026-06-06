@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540" role="img" aria-label="Mythic scholar sword immortal">
+  <path d="M184 42c50 0 82 36 82 82 0 44-34 78-82 78s-82-34-82-78c0-46 32-82 82-82z" fill="#f1d5aa" stroke="#17231f" stroke-width="8"/>
+  <path d="M104 132c42-72 112-100 182-46 8 8 18 30 30 66-70-34-140-40-212-20z" fill="#17231f"/>
+  <path d="M112 208c48 28 96 28 144 0 40 82 62 176 66 282-96 22-190 22-284 0 8-106 34-200 74-282z" fill="#fffaf0" stroke="#17231f" stroke-width="8"/>
+  <path d="M74 318h214" stroke="#b98d28" stroke-width="10" stroke-linecap="round"/>
+  <path d="M288 318 336 282M288 318l48 36" stroke="#17231f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M134 254c36 48 60 122 72 220" fill="none" stroke="#0f7669" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="278" cy="256" r="18" fill="none" stroke="#b98d28" stroke-width="5"/>
+</svg>

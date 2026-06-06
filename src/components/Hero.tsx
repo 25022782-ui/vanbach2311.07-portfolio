@@ -1,5 +1,8 @@
 import { ArrowRight, BookOpen, Compass, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FloatingDecor } from "./FloatingDecor";
+import { GeneratedArtImage } from "./GeneratedArtImage";
+import { heroArt } from "../data/generatedArt";
 import { profile } from "../data/profile";
 
 export function Hero() {
@@ -28,16 +31,18 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hero-art" aria-hidden="true">
-        <div className="hero-moon" />
+      <div className="hero-art mythic-hero-art">
+        <GeneratedArtImage
+          className="hero-art-image"
+          asset={heroArt.home}
+          alt=""
+          aria-hidden="true"
+        />
         <div className="hero-cloud cloud-a" />
         <div className="hero-cloud cloud-b" />
-        <div className="hero-peak peak-a" />
-        <div className="hero-peak peak-b" />
-        <div className="hero-peak peak-c" />
-        <div className="hero-river" />
         <div className="hero-orbit orbit-a" />
         <div className="hero-orbit orbit-b" />
+        <FloatingDecor variant="home" />
       </div>
     </section>
   );

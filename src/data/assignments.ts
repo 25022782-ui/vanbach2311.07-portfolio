@@ -1,13 +1,18 @@
+import { assignmentCoverArt } from "./generatedArt";
 import { assetMap } from "../utils/assetMap";
 
 export type Assignment = {
   id: string;
+  slug: string;
   number: number;
   title: string;
   chapter: string;
   shortDescription: string;
   skills: string[];
-  image?: string;
+  coverImage: string;
+  coverFallbackImage: string;
+  coverImageFileName: string;
+  promptImage?: string;
   pdf?: string;
   sourceFolder: string;
   objectives: string[];
@@ -16,22 +21,28 @@ export type Assignment = {
   reflection: string[];
 };
 
-// Mapping dựa trên rubric trong CNS/Yêu cầu Portfolio.pdf và cấu trúc tuần.
-// Một số file có tên lặp lại như Bai_tap_2, vì vậy folder Tuan_* là tín hiệu chính để ghép đúng bài.
+// Mapping dựa trên CNS/Yêu cầu Portfolio.pdf và cấu trúc CNS/Tuan_*.
+// Lưu ý: các file PNG trong CNS chỉ là ảnh đề bài/minh chứng gốc (promptImage).
+// Ảnh đại diện chính của web luôn là coverImage từ public/generated-art/.
+// Khi ảnh PNG tạo mới chưa có, giao diện tự rơi về coverFallbackImage là SVG tạm.
 export const assignments: Assignment[] = [
   {
     id: "bai-1",
+    slug: "bai-1",
     number: 1,
     title: "Máy tính và các thiết bị ngoại vi",
     chapter: "Bài tập 1 - Mục 1.4: Thao tác cơ bản với tệp tin và thư mục",
     shortDescription:
       "Làm quen môi trường máy tính, File Explorer và quy trình tổ chức tệp/thư mục theo một cấu trúc rõ ràng.",
-    skills: ["File Explorer", "Quản lý thư mục", "Đặt tên tệp", "Sao chép và di chuyển dữ liệu"],
-    image: assetMap.bai1.image,
+    skills: ["File Explorer", "Quản lý thư mục", "Đặt tên tệp", "Sao chép dữ liệu"],
+    coverImage: assignmentCoverArt.bai1.src,
+    coverFallbackImage: assignmentCoverArt.bai1.fallback,
+    coverImageFileName: assignmentCoverArt.bai1.fileName,
+    promptImage: assetMap.bai1.promptImage,
     pdf: assetMap.bai1.pdf,
     sourceFolder: assetMap.bai1.sourceFolder,
     objectives: [
-      "Hiểu vai trò của máy tính như công cụ làm việc số và biết thao tác an toàn với tệp dữ liệu.",
+      "Hiểu vai trò của máy tính như một công cụ làm việc số và biết thao tác an toàn với tệp dữ liệu.",
       "Thực hành tạo thư mục, tạo tệp văn bản, đổi tên, sao chép, di chuyển và xóa tệp.",
       "Hình thành thói quen đặt tên và tổ chức tài liệu có quy tắc để phục vụ học tập lâu dài.",
     ],
@@ -43,8 +54,8 @@ export const assignments: Assignment[] = [
     ],
     result: [
       "Sản phẩm là cấu trúc thư mục thực hành có tệp gốc, bản sao và thư mục con được sắp xếp theo đúng yêu cầu.",
-      "Ảnh minh chứng thể hiện quy trình thao tác, bảng tự đánh giá và kết quả hoàn thành trong bài nộp.",
-      "Báo cáo PDF ghi lại tuần tự từng bước, giúp người xem tái hiện lại quy trình thực hành.",
+      "Báo cáo PDF ghi lại tuần tự từng thao tác, giúp người xem có thể tái hiện quy trình thực hành.",
+      "Ảnh đề bài/minh chứng gốc được đặt riêng ở phần Đề bài gốc, không dùng làm ảnh đại diện chính.",
     ],
     reflection: [
       "Bài tập cho thấy kỹ năng cơ bản với tệp và thư mục là nền tảng của mọi sản phẩm số sau này.",
@@ -54,13 +65,17 @@ export const assignments: Assignment[] = [
   },
   {
     id: "bai-2",
+    slug: "bai-2",
     number: 2,
     title: "Khai thác dữ liệu và thông tin",
     chapter: "Bài tập 2 - Mục 2.4: Tìm kiếm và đánh giá thông tin học thuật",
     shortDescription:
       "Đánh giá độ tin cậy của nguồn tài liệu về thiên kiến, đạo đức và tính công bằng trong các mô hình ngôn ngữ lớn.",
     skills: ["Tìm kiếm học thuật", "Đánh giá nguồn", "Trích dẫn", "Tư duy phản biện"],
-    image: assetMap.bai2.image,
+    coverImage: assignmentCoverArt.bai2.src,
+    coverFallbackImage: assignmentCoverArt.bai2.fallback,
+    coverImageFileName: assignmentCoverArt.bai2.fileName,
+    promptImage: assetMap.bai2.promptImage,
     pdf: assetMap.bai2.pdf,
     sourceFolder: assetMap.bai2.sourceFolder,
     objectives: [
@@ -87,13 +102,17 @@ export const assignments: Assignment[] = [
   },
   {
     id: "bai-3",
+    slug: "bai-3",
     number: 3,
     title: "Tổng quan về trí tuệ nhân tạo",
     chapter: "Bài tập 2 - Mục 3.4: Viết prompt hiệu quả cho các tác vụ học tập",
     shortDescription:
       "Khảo sát cách thiết kế prompt để biến AI từ công cụ trả lời nhanh thành đối tác hỗ trợ học tập có cấu trúc.",
     skills: ["Prompt Engineering", "CO-STAR", "RACE", "Chain-of-Thought", "Bloom"],
-    image: assetMap.bai3.image,
+    coverImage: assignmentCoverArt.bai3.src,
+    coverFallbackImage: assignmentCoverArt.bai3.fallback,
+    coverImageFileName: assignmentCoverArt.bai3.fileName,
+    promptImage: assetMap.bai3.promptImage,
     pdf: assetMap.bai3.pdf,
     sourceFolder: assetMap.bai3.sourceFolder,
     objectives: [
@@ -120,13 +139,17 @@ export const assignments: Assignment[] = [
   },
   {
     id: "bai-4",
+    slug: "bai-4",
     number: 4,
     title: "Giao tiếp và hợp tác trong môi trường số",
     chapter: "Bài tập 3 - Mục 4.4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
     shortDescription:
       "Phân tích vai trò cá nhân trong dự án video nhóm và cách các công cụ số giúp quản lý nhiệm vụ, tài liệu, họp trực tuyến.",
-    skills: ["Quản lý dự án", "Tài liệu cộng tác", "Lưu trữ đám mây", "Họp trực tuyến", "Hậu kỳ video"],
-    image: assetMap.bai4.image,
+    skills: ["Quản lý dự án", "Tài liệu cộng tác", "Lưu trữ đám mây", "Họp trực tuyến"],
+    coverImage: assignmentCoverArt.bai4.src,
+    coverFallbackImage: assignmentCoverArt.bai4.fallback,
+    coverImageFileName: assignmentCoverArt.bai4.fileName,
+    promptImage: assetMap.bai4.promptImage,
     pdf: assetMap.bai4.pdf,
     sourceFolder: assetMap.bai4.sourceFolder,
     objectives: [
@@ -153,13 +176,17 @@ export const assignments: Assignment[] = [
   },
   {
     id: "bai-5",
+    slug: "bai-5",
     number: 5,
     title: "Sáng tạo nội dung số",
     chapter: "Bài tập 2 - Mục 5.4: Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung",
     shortDescription:
       "Thiết kế infographic AI trong học tập: trợ lý, không thay thế tư duy, bằng quy trình lặp có prompt, phản biện và tự chỉnh sửa.",
-    skills: ["AI tạo sinh", "Infographic", "Thiết kế nội dung", "Phản biện AI", "Đạo đức số"],
-    image: assetMap.bai5.image,
+    skills: ["AI tạo sinh", "Infographic", "Thiết kế nội dung", "Phản biện AI"],
+    coverImage: assignmentCoverArt.bai5.src,
+    coverFallbackImage: assignmentCoverArt.bai5.fallback,
+    coverImageFileName: assignmentCoverArt.bai5.fileName,
+    promptImage: assetMap.bai5.promptImage,
     pdf: assetMap.bai5.pdf,
     sourceFolder: assetMap.bai5.sourceFolder,
     objectives: [
@@ -186,13 +213,17 @@ export const assignments: Assignment[] = [
   },
   {
     id: "bai-6",
+    slug: "bai-6",
     number: 6,
     title: "An toàn và liêm chính học thuật trong môi trường số",
     chapter: "Bài tập 4 - Mục 6.4: Sử dụng AI có trách nhiệm trong học tập và nghiên cứu",
     shortDescription:
       "Nghiên cứu chính sách VinUniversity, đối chiếu RMIT Vietnam và UNESCO để xây dựng nguyên tắc cá nhân khi dùng AI.",
-    skills: ["Liêm chính học thuật", "Chính sách AI", "Minh bạch", "Kiểm chứng", "An toàn dữ liệu"],
-    image: assetMap.bai6.image,
+    skills: ["Liêm chính học thuật", "Chính sách AI", "Minh bạch", "An toàn dữ liệu"],
+    coverImage: assignmentCoverArt.bai6.src,
+    coverFallbackImage: assignmentCoverArt.bai6.fallback,
+    coverImageFileName: assignmentCoverArt.bai6.fileName,
+    promptImage: assetMap.bai6.promptImage,
     pdf: assetMap.bai6.pdf,
     sourceFolder: assetMap.bai6.sourceFolder,
     objectives: [
@@ -219,5 +250,5 @@ export const assignments: Assignment[] = [
   },
 ];
 
-export const getAssignmentById = (id?: string) =>
-  assignments.find((assignment) => assignment.id === id);
+export const getAssignmentById = (idOrSlug?: string) =>
+  assignments.find((assignment) => assignment.id === idOrSlug || assignment.slug === idOrSlug);

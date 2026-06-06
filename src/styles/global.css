@@ -1,13 +1,25 @@
+@font-face {
+  font-family: "CNS Co Ban";
+  src: url("../assets/fonts/Co_ban.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CNS Tieu De";
+  src: url("../assets/fonts/Tieu-de.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
+  --font-body: "CNS Co Ban", "Segoe UI", "Noto Sans", Arial, sans-serif;
+  --font-heading: "CNS Tieu De", Georgia, "Times New Roman", serif;
   font-family:
-    "Segoe UI",
-    "Noto Sans",
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+    var(--font-body);
   --paper: #f7f1e3;
   --paper-soft: #fffaf0;
   --paper-deep: #eadfc6;
@@ -43,6 +55,10 @@ body {
     linear-gradient(180deg, rgba(255, 250, 240, 0.96), rgba(247, 241, 227, 0.96)),
     var(--paper);
   color: var(--ink);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
 }
 
 body::selection {
@@ -213,8 +229,10 @@ main {
 
 .brand strong {
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.02rem;
+  font-family: var(--font-heading);
+  font-size: 1.16rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .brand small {
@@ -293,6 +311,8 @@ main {
 
 .hero-copy,
 .detail-copy {
+  position: relative;
+  z-index: 2;
   min-width: 0;
 }
 
@@ -314,38 +334,40 @@ p {
 
 h1,
 h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.08;
+  font-family: var(--font-heading);
+  letter-spacing: 0;
+  line-height: 1.12;
   font-weight: 700;
 }
 
 h1 {
   max-width: 11ch;
   margin: 18px 0 22px;
-  font-size: clamp(3.25rem, 8vw, 6.6rem);
+  font-size: 6.5rem;
 }
 
 h2 {
   margin-bottom: 18px;
-  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-size: 3.45rem;
 }
 
 h3 {
   margin-bottom: 10px;
   font-size: 1.05rem;
+  font-weight: 700;
 }
 
 p,
 li {
   color: var(--ink-muted);
-  line-height: 1.76;
+  line-height: 1.78;
 }
 
 .hero-lead,
 .page-hero p,
 .detail-copy > p {
   max-width: 680px;
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  font-size: 1.16rem;
   color: #34413b;
 }
 
@@ -397,6 +419,18 @@ li {
     linear-gradient(180deg, rgba(255, 250, 240, 0.2), rgba(255, 250, 240, 0.72)),
     linear-gradient(145deg, rgba(19, 122, 106, 0.15), rgba(57, 48, 90, 0.18) 48%, rgba(185, 141, 40, 0.16));
   box-shadow: var(--shadow-soft);
+}
+
+.mythic-hero-art::after,
+.detail-art::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 30% 18%, rgba(255, 250, 240, 0.28), transparent 32%),
+    linear-gradient(180deg, transparent, rgba(255, 250, 240, 0.18));
+  content: "";
+  pointer-events: none;
 }
 
 .hero-moon {
@@ -571,8 +605,9 @@ li {
 .profile-list strong {
   display: block;
   overflow-wrap: anywhere;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.28rem, 3vw, 2rem);
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  letter-spacing: 0;
 }
 
 .info-block,
@@ -659,14 +694,20 @@ li {
 
 .page-hero,
 .detail-hero {
+  overflow: hidden;
   padding: clamp(58px, 8vw, 102px) 0 clamp(36px, 6vw, 70px);
+}
+
+.art-page-hero .section-inner {
+  position: relative;
+  z-index: 2;
 }
 
 .compact-hero h1,
 .reflection-hero h1,
 .detail-copy h1 {
   max-width: 840px;
-  font-size: clamp(2.7rem, 7vw, 5.6rem);
+  font-size: 5.45rem;
 }
 
 .project-summary {
@@ -686,8 +727,9 @@ li {
 .summary-item strong {
   display: block;
   margin-top: 12px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2.4rem;
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  letter-spacing: 0;
 }
 
 .summary-item p,
@@ -760,7 +802,7 @@ li {
 
 .assignment-body h2 {
   margin-bottom: 10px;
-  font-size: 1.45rem;
+  font-size: 1.62rem;
 }
 
 .assignment-body p:not(.assignment-chapter) {
@@ -832,6 +874,7 @@ li {
 }
 
 .detail-art {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid rgba(23, 35, 31, 0.14);
@@ -883,7 +926,7 @@ li {
 .detail-section-heading h2,
 .source-panel h2 {
   margin-bottom: 12px;
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-size: 2.35rem;
 }
 
 .detail-list {
@@ -892,6 +935,21 @@ li {
 
 .source-actions {
   margin-top: 22px;
+}
+
+.prompt-image-frame {
+  overflow: hidden;
+  margin: 22px 0 0;
+  border: 1px solid rgba(23, 35, 31, 0.14);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.72);
+}
+
+.prompt-image-frame img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: contain;
+  background: #fffaf0;
 }
 
 .missing-note {
@@ -907,7 +965,7 @@ li {
 
 .reflection-item h2 {
   margin-bottom: 12px;
-  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-size: 2.28rem;
 }
 
 .reflection-item:last-child {
@@ -979,6 +1037,20 @@ li {
 }
 
 @media (max-width: 980px) {
+  h1 {
+    font-size: 5.1rem;
+  }
+
+  h2 {
+    font-size: 2.9rem;
+  }
+
+  .compact-hero h1,
+  .reflection-hero h1,
+  .detail-copy h1 {
+    font-size: 4.45rem;
+  }
+
   .hero-section,
   .two-column,
   .three-column,
@@ -1011,6 +1083,36 @@ li {
 }
 
 @media (max-width: 720px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+
+  h2 {
+    font-size: 2.36rem;
+  }
+
+  .hero-lead,
+  .page-hero p,
+  .detail-copy > p {
+    font-size: 1.04rem;
+  }
+
+  .compact-hero h1,
+  .reflection-hero h1,
+  .detail-copy h1 {
+    font-size: 3.45rem;
+  }
+
+  .profile-list strong {
+    font-size: 1.72rem;
+  }
+
+  .detail-section-heading h2,
+  .source-panel h2,
+  .reflection-item h2 {
+    font-size: 1.9rem;
+  }
+
   .navbar {
     width: min(100% - 24px, 1160px);
   }
@@ -1087,8 +1189,22 @@ li {
 }
 
 @media (max-width: 460px) {
+  h1 {
+    font-size: 2.95rem;
+  }
+
+  h2 {
+    font-size: 2.08rem;
+  }
+
+  .compact-hero h1,
+  .reflection-hero h1,
+  .detail-copy h1 {
+    font-size: 2.8rem;
+  }
+
   .brand strong {
-    font-size: 0.92rem;
+    font-size: 1.02rem;
   }
 
   .brand small {
