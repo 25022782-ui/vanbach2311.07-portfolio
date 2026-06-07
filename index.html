@@ -23,10 +23,29 @@
           document.documentElement.style.colorScheme = "dark";
         }
       })();
+
+      window.__loadBuiltPortfolio = () => {
+        if (window.__portfolioFallbackLoaded) {
+          return;
+        }
+
+        window.__portfolioFallbackLoaded = true;
+
+        const basePath = "/vanbach2311.07-portfolio/";
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = `${basePath}assets/index-7sWa46wl.css`;
+        document.head.appendChild(stylesheet);
+
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src = `${basePath}assets/index-Cndt_ufR.js`;
+        document.body.appendChild(script);
+      };
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" onerror="window.__loadBuiltPortfolio?.()"></script>
   </body>
 </html>
