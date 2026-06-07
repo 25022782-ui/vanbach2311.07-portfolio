@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-label="Spirit crane ink bird">
+  <path d="M260 150c-84-72-160-98-228-78 64 58 142 88 234 90" fill="#fffaf0" stroke="#17231f" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M260 150c82-82 158-120 228-112-54 72-128 116-222 126" fill="#fffaf0" stroke="#17231f" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M244 150c48-22 94-18 138 12-52 34-106 36-162 8" fill="#d8eee8" stroke="#0f6b61" stroke-width="6"/>
+  <path d="M368 140c54 8 90 28 108 60" fill="none" stroke="#17231f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M470 200c18 2 32 10 42 24" stroke="#b98d28" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="382" cy="132" r="6" fill="#17231f"/>
+</svg>

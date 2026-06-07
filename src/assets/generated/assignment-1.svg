@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Ink wash study desk with computer peripherals">
+  <rect width="960" height="600" fill="#fff7e8"/>
+  <circle cx="772" cy="118" r="78" fill="#efd98d" opacity=".7"/>
+  <path d="M0 420c112-46 222-48 330-6 118 46 240 30 366-48 116-72 204-56 264-6v240H0z" fill="#d9eee8" opacity=".8"/>
+  <path d="M96 476h768" stroke="#17231f" stroke-width="12" stroke-linecap="round" opacity=".66"/>
+  <rect x="264" y="176" width="338" height="216" rx="18" fill="#182744" opacity=".86"/>
+  <rect x="292" y="206" width="282" height="154" rx="10" fill="#edf8f2"/>
+  <path d="M346 298c52-52 112-56 180-14" fill="none" stroke="#0f7669" stroke-width="8" stroke-linecap="round"/>
+  <rect x="208" y="414" width="452" height="46" rx="14" fill="#f6e7c2" stroke="#17231f" stroke-width="6" opacity=".9"/>
+  <rect x="686" y="408" width="86" height="52" rx="24" fill="#f6e7c2" stroke="#17231f" stroke-width="6"/>
+  <path d="M724 408c8-52 42-76 88-72" fill="none" stroke="#17231f" stroke-width="4" opacity=".45"/>
+  <path d="M178 240c-18 86-8 146 30 184" fill="none" stroke="#b98d28" stroke-width="7" stroke-linecap="round"/>
+</svg>

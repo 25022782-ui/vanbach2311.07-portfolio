@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Ink wash collaborative cloud islands">
+  <rect width="960" height="600" fill="#fff8e8"/>
+  <path d="M0 398c104-70 218-86 342-48 146 44 280 36 402-24 82-40 154-54 216-42v316H0z" fill="#dff0ea"/>
+  <g fill="#fffaf0" stroke="#17231f" stroke-width="6" opacity=".86">
+    <path d="M132 364c42-46 104-58 186-36 32 8 62 24 90 48-98 24-188 20-276-12z"/>
+    <path d="M516 292c52-52 128-62 230-30 34 12 66 32 96 62-126 30-234 20-326-32z"/>
+    <path d="M340 456c58-50 140-58 246-24 36 12 70 30 102 56-132 30-248 20-348-32z"/>
+  </g>
+  <g fill="none" stroke="#0f7669" stroke-width="7" stroke-linecap="round">
+    <path d="M312 364c80-58 158-80 234-66"/>
+    <path d="M468 426c42-38 86-70 132-96"/>
+    <path d="M378 430c-30-42-56-66-78-72"/>
+  </g>
+  <g fill="#b98d28">
+    <circle cx="242" cy="338" r="14"/><circle cx="638" cy="280" r="14"/><circle cx="500" cy="428" r="14"/>
+  </g>
+  <path d="M704 226c20 28 24 56 10 84m-502 76c-20-18-28-40-24-66" fill="none" stroke="#b98d28" stroke-width="5" stroke-linecap="round"/>
+</svg>

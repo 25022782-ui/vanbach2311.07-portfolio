@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" role="img" aria-label="Young cultivator ink character">
+  <defs>
+    <linearGradient id="robe" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fffaf0"/>
+      <stop offset=".56" stop-color="#d8eee8"/>
+      <stop offset="1" stop-color="#0f6b61"/>
+    </linearGradient>
+  </defs>
+  <path d="M180 38c54 0 86 38 86 86 0 44-34 78-86 78s-86-34-86-78c0-48 32-86 86-86z" fill="#f2d9ad" stroke="#17231f" stroke-width="8"/>
+  <path d="M88 134c48-38 134-38 184 0-18-76-58-112-92-112s-72 36-92 112z" fill="#17231f"/>
+  <path d="M108 204c48 22 96 22 144 0 42 88 66 174 72 258-86 30-174 30-264 0 6-84 30-170 48-258z" fill="url(#robe)" stroke="#17231f" stroke-width="8"/>
+  <path d="M132 230c42 48 74 122 96 222" fill="none" stroke="#b98d28" stroke-width="8" stroke-linecap="round"/>
+  <path d="M104 286c-34 18-58 52-72 102m224-102c34 18 58 52 72 102" fill="none" stroke="#0f6b61" stroke-width="12" stroke-linecap="round"/>
+  <path d="M106 470c46 22 96 32 148 0" fill="none" stroke="#17231f" stroke-width="8" stroke-linecap="round" opacity=".54"/>
+</svg>
